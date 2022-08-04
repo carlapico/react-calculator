@@ -1,6 +1,19 @@
 import { useState } from 'react';
 import './App.css';
 
+const styles = {
+  title: {
+    fontSize: 36,
+    fontWeight: "900",
+    color: "khaki"
+  },
+
+  screen: {
+      backgroundColor: "black",
+      padding: 16
+  }
+}
+
 function App() {
   const [total,setTotal] = useState(0)
   let digits = [1,2,3,4,5,6,7,8,9,0]
@@ -8,12 +21,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-          <div>Sum Total: {total}</div>
+          {/* object styling/ filing styles which is a better way of styling */}
+          <div style= {styles.title}> Total: {total}</div>  
+            <div id="calculator"> 
+                  {/* inline styles */}
+                  {digits.map((digit) => {return <button style={{color:"blackground", backgroundColor:"darkgray"}} key={digit} onClick={()=>{setTotal(total + digit)}}>{digit}  </button>})}
 
-          {digits.map((digit) => {return <button key={digit} onClick={()=>{setTotal(total + digit)}}>{digit}  </button>})}
-
-          <button onClick={()=>{setTotal(0)}}>reset</button>
-
+                  <button onClick={()=>{setTotal(0)}}>reset</button>
+            </div>
           {/*      same as above     
           <button onClick={()=> {setTotal(total + 1)}}>1</button>
           <button onClick={()=>{setTotal(total + 2)}}>2</button>

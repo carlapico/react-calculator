@@ -41,3 +41,11 @@
 button {
   width:33%;
 }
+
+/* You use the # because of the calculator id otherwise you would be using . */
+#calculator {
+  background-color: white;
+  margin: 5px;
+  border: 5px solid black;
+  
+}
